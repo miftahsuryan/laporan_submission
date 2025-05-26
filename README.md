@@ -1,17 +1,19 @@
 # Laporan Proyek Machine Learning - MIFTAHULLAH SURYA NUGRAHA
 
 ---
+## Overview Proyek
 
-## Domain Proyek
+Penyakit jantung merupakan penyebab utama kematian global, termasuk di Indonesia. Menurut World Health Organization (WHO), penyakit jantung dan pembuluh darah menyumbang sekitar 31% dari total kematian tahunan di seluruh dunia (World Health Organization, 2021). Di Indonesia, prevalensi penyakit jantung koroner terus meningkat setiap tahunnya, yang memberikan dampak signifikan terhadap sistem kesehatan nasional serta aspek sosial dan ekonomi masyarakat (Kementerian Kesehatan Republik Indonesia, 2022). Deteksi dini penyakit jantung sangat krusial agar penanganan yang cepat dan tepat dapat mencegah komplikasi serius serta menurunkan angka kematian.
+Namun, keterbatasan sumber daya medis dan lambatnya proses diagnosis masih menjadi kendala utama dalam penanganan penyakit ini. Oleh karena itu, pengembangan model prediktif berbasis data kesehatan dengan menggunakan teknik machine learning berpotensi membantu tenaga medis dalam melakukan deteksi dini secara cepat dan akurat, sehingga intervensi yang optimal dapat dilakukan (Mathur et al., 2020).
 
-Penyakit jantung merupakan penyebab utama kematian global dan di Indonesia. Menurut **World Health Organization (WHO)**, penyakit jantung dan pembuluh darah menyumbang sekitar **31% kematian tahunan di seluruh dunia**. Di Indonesia, prevalensi penyakit jantung koroner meningkat setiap tahun, membebani sistem kesehatan dan masyarakat secara sosial ekonomi. Deteksi dini penyakit jantung sangat penting agar penanganan tepat waktu dapat mencegah komplikasi serius dan menurunkan angka kematian.
+---
 
-Namun, keterbatasan sumber daya medis dan diagnosis yang lambat masih menjadi kendala. Oleh karena itu, pengembangan model prediktif berbasis data kesehatan menggunakan teknik machine learning dapat membantu tenaga medis melakukan deteksi dini secara cepat dan akurat, sehingga penanganan dapat dilakukan secara optimal.
+### Referensi
 
-**Referensi resmi:**  
-- World Health Organization (2021)  
-- Kementerian Kesehatan Republik Indonesia (2022)
-- Artificial Intelligence, Machine Learning, and Cardiovascular Disease (https://pmc.ncbi.nlm.nih.gov/articles/PMC7485162/)
+- World Health Organization. (2021). *Cardiovascular diseases (CVDs)*. Retrieved from https://www.who.int/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)  
+- Kementerian Kesehatan Republik Indonesia. (2022). *Profil Kesehatan Indonesia Tahun 2021*. Jakarta: Kementerian Kesehatan RI.  
+- Mathur, P., Srivastava, S., Xu, X., & Mehta, J. L. (2020). Artificial intelligence, machine learning, and cardiovascular disease. *Journal of the American College of Cardiology*, 75(23), 2879–2891. https://doi.org/10.1016/j.jacc.2020.04.010 Retrieved from https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7485162/
+
 ---
 
 ## Business Understanding
@@ -26,7 +28,7 @@ Namun, keterbatasan sumber daya medis dan diagnosis yang lambat masih menjadi ke
 
 ### Solution Statements  
 - Menerapkan dua model utama:  
-  1. **Random Forest** sebagai model ensemble kuat  
+  1. **Random Forest** sebagai model ensemble kuat   
   2. **Deep Learning (MLP)** untuk pola non-linear kompleks  
 - Melakukan evaluasi setiap model dengan metrik lengkap: Accuracy, Precision, Recall, F1-Score.
 - Memilih model terbaik berdasarkan metrik evaluasi.
@@ -34,6 +36,9 @@ Namun, keterbatasan sumber daya medis dan diagnosis yang lambat masih menjadi ke
 ---
 
 ## Data Understanding
+
+**Link dataset:**  
+https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset/data
 
 Dataset yang digunakan adalah **Heart Disease Dataset** dari Kaggle, mengandung **1025 sampel** dengan 14 fitur numerik dan kategorikal, serta target klasifikasi biner.
 
@@ -57,22 +62,25 @@ Dataset yang digunakan adalah **Heart Disease Dataset** dari Kaggle, mengandung 
 | `target`     | Diagnosis penyakit jantung             | Kategorikal biner  |
 
 ### Eksplorasi Data  
-- Dataset dicek lengkap tanpa missing values.
 
-  ![image](https://github.com/user-attachments/assets/f0bac4ff-57da-46d2-bc7c-89e342b56c54)
+- Dataset telah diperiksa dan tidak ditemukan nilai yang hilang (missing values), memastikan kualitas data yang baik untuk analisis lebih lanjut.
 
+  ![Pemeriksaan Missing Values](https://github.com/user-attachments/assets/f0bac4ff-57da-46d2-bc7c-89e342b56c54)
 
-- Distribusi target seimbang.
+- Distribusi kelas target relatif seimbang, sehingga model tidak mengalami bias terhadap salah satu kelas.
+
+  ![Distribusi Target](https://github.com/user-attachments/assets/6f1bc2fb-d846-4ab3-ad4f-5523d54e42cf)
+
+- Visualisasi distribusi fitur numerik dan kategorikal dilakukan guna memahami karakteristik data serta mengidentifikasi adanya outlier.
+
+  ![Distribusi Fitur Numerik](https://github.com/user-attachments/assets/8365567b-c155-4872-a137-404a60ca737b)
+
+  ![Distribusi Fitur Kategorikal](https://github.com/user-attachments/assets/45b3e1ae-762f-42ec-98f3-a0ba8b34f4ad)
+
+- Analisis korelasi antara fitur-fitur dengan target dilakukan untuk memilih fitur-fitur yang memiliki pengaruh signifikan terhadap prediksi.
+
+  ![Korelasi Fitur dengan Target](https://github.com/user-attachments/assets/ec69c4c5-afcd-42ff-86d6-7ef6a75fd157)
   
-  ![Unknown-13](https://github.com/user-attachments/assets/6f1bc2fb-d846-4ab3-ad4f-5523d54e42cf)
-  
-- Visualisasi distribusi fitur numerik dan kategorikal dilakukan untuk memahami data dan mengidentifikasi outlier.
-
-  
-- Korelasi fitur dengan target dianalisis untuk pemilihan fitur penting.
-
-**Link dataset:**  
-https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset/data
 
 ---
 
