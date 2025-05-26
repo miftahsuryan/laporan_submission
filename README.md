@@ -1,4 +1,4 @@
-# Laporan Proyek Machine Learning - [Nama Anda]
+# Laporan Proyek Machine Learning - MIFTAHULLAH SURYA NUGRAHA
 
 ---
 
@@ -11,7 +11,7 @@ Namun, keterbatasan sumber daya medis dan diagnosis yang lambat masih menjadi ke
 **Referensi resmi:**  
 - World Health Organization (2021)  
 - Kementerian Kesehatan Republik Indonesia (2022)
-
+- Artificial Intelligence, Machine Learning, and Cardiovascular Disease (https://pmc.ncbi.nlm.nih.gov/articles/PMC7485162/)
 ---
 
 ## Business Understanding
@@ -19,25 +19,23 @@ Namun, keterbatasan sumber daya medis dan diagnosis yang lambat masih menjadi ke
 ### Problem Statements  
 - Bagaimana membangun model yang dapat mengklasifikasikan risiko penyakit jantung berdasarkan data medis dan riwayat pasien?  
 - Bagaimana membantu tenaga medis dalam mendapatkan diagnosis awal yang cepat dan akurat?  
-- Bagaimana memastikan model mudah dipahami agar faktor risiko dapat dijelaskan kepada pasien dan dokter?
 
-### Goals  
-- Membangun model klasifikasi dengan akurasi minimal **85%**.  
+### Tujuan 
+- Membangun model klasifikasi dengan akurasi minimal **90%**.  
 - Menghasilkan model yang dapat diinterpretasi oleh tenaga medis.  
-- Meningkatkan efisiensi diagnosis awal guna mendukung penanganan tepat waktu.
 
 ### Solution Statements  
 - Menerapkan dua model utama:  
   1. **Random Forest** sebagai model ensemble kuat  
   2. **Deep Learning (MLP)** untuk pola non-linear kompleks  
-- Melakukan tuning dan evaluasi setiap model dengan cross-validation dan metrik lengkap: **Accuracy, Precision, Recall, F1-Score**.  
-- Memilih model terbaik berdasarkan metrik evaluasi dan interpretabilitas sesuai kebutuhan klinis.
+- Melakukan evaluasi setiap model dengan metrik lengkap: Accuracy, Precision, Recall, F1-Score.
+- Memilih model terbaik berdasarkan metrik evaluasi.
 
 ---
 
 ## Data Understanding
 
-Dataset yang digunakan adalah **Heart Disease Dataset** dari Kaggle, mengandung **1372 sampel** dengan 14 fitur numerik dan kategorikal, serta target klasifikasi biner.
+Dataset yang digunakan adalah **Heart Disease Dataset** dari Kaggle, mengandung **1025 sampel** dengan 14 fitur numerik dan kategorikal, serta target klasifikasi biner.
 
 ### Fitur utama
 
@@ -59,9 +57,18 @@ Dataset yang digunakan adalah **Heart Disease Dataset** dari Kaggle, mengandung 
 | `target`     | Diagnosis penyakit jantung             | Kategorikal biner  |
 
 ### Eksplorasi Data  
-- Dataset dicek lengkap tanpa missing values.  
-- Distribusi target seimbang.  
-- Visualisasi distribusi fitur numerik dan kategorikal dilakukan untuk memahami data dan mengidentifikasi outlier.  
+- Dataset dicek lengkap tanpa missing values.
+
+  ![image](https://github.com/user-attachments/assets/f0bac4ff-57da-46d2-bc7c-89e342b56c54)
+
+
+- Distribusi target seimbang.
+  
+  ![Unknown-13](https://github.com/user-attachments/assets/6f1bc2fb-d846-4ab3-ad4f-5523d54e42cf)
+  
+- Visualisasi distribusi fitur numerik dan kategorikal dilakukan untuk memahami data dan mengidentifikasi outlier.
+
+  
 - Korelasi fitur dengan target dianalisis untuk pemilihan fitur penting.
 
 **Link dataset:**  
@@ -121,10 +128,6 @@ https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset/data
 ## Kesimpulan
 
 Model **Random Forest** memberikan performa terbaik dengan keseimbangan metrik yang tinggi dan interpretasi fitur yang membantu. Deep Learning menunjukkan potensi dengan pola non-linear, namun perlu data lebih besar dan tuning lanjut.
-
----
-
-Jika ingin menambahkan grafik, kode snippet, atau file lain, jangan ragu untuk minta bantuan!
 
 ---
 
