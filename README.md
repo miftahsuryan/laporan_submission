@@ -89,22 +89,34 @@ Dataset berisi **1025 sampel** dengan 14 fitur numerik dan kategorikal, serta ta
 Statistik fitur numerik memberikan gambaran distribusi dan sebaran data tiap variabel utama.
 
 ### Missing Values  
-Tidak ditemukan missing values sehingga tidak perlu imputasi.
+Tidak ditemukan missing values.
 
 ### Distribusi Target  
 Visualisasi distribusi target menunjukkan keseimbangan kelas.
 
+![Distribusi Target](images/Distribusi-Target.png)
+
 ### Visualisasi Fitur  
 Histogram dan KDE untuk fitur numerik, serta countplot untuk kategorikal, membantu memahami distribusi dan variasi data.
+
+![Distribusi Data Numerik](images/Distribusi-Numerik.png)
+
+![Distribusi Data Kategorikal](images/Distribusi-Kategorikal.png)
 
 ### Deteksi Outlier  
 Boxplot mengindikasikan keberadaan outlier yang perlu ditangani.
 
+![Deteksi Outlier](images/Deteksi-Outlier.png)
+
 ### Korelasi  
 Matriks korelasi membantu memilih fitur yang paling relevan untuk prediksi.
 
+![Matriks Korelasi](images/Matrix-Korelasi.png)
+
 ### Analisis Kategorikal vs Target  
 Countplot dengan hue target menunjukkan hubungan kategori dan kelas target.
+
+![Distribusi Kategorikal Target](images/Kategorikal-Target.png)
 
 ---
 
@@ -165,19 +177,54 @@ Countplot dengan hue target menunjukkan hubungan kategori dan kelas target.
 - **Kekurangan:**  
   - Membutuhkan waktu pelatihan lebih lama dan data lebih banyak agar optimal.  
   - Rentan overfitting tanpa teknik regularisasi dan validasi tepat.  
-  - Interpretabilitas rendah dibanding Random Forest, sulit dijelaskan ke pengguna akhir.  
+  - Interpretabilitas rendah dibanding Random Forest.  
 
 ---
 
 ## Evaluation
 
-### Metrik yang Digunakan  
-- **Accuracy:** Rasio prediksi benar dari total prediksi.  
-- **Precision:** Proporsi prediksi positif yang benar, mengurangi false positive.  
-- **Recall:** Proporsi kasus positif yang terdeteksi, mengurangi false negative.  
-- **F1-Score:** Harmonis Precision dan Recall, penting saat kelas tidak seimbang.
+Dalam evaluasi performa algoritma *machine learning*, khususnya untuk klasifikasi, beberapa metrik penting yang umum digunakan adalah:
 
-Rumus lengkap tersedia di notebook.
+### 1. Accuracy  
+Accuracy mengukur proporsi prediksi yang benar terhadap seluruh data yang diuji. Rumusnya adalah:
+
+$$
+\text{Accuracy} = \frac{TP + TN}{TP + FP + FN + TN}
+$$
+
+dimana:  
+- *TP* = True Positive  
+- *TN* = True Negative  
+- *FP* = False Positive  
+- *FN* = False Negative  
+
+### 2. Precision  
+Precision mengukur seberapa akurat prediksi positif yang dihasilkan, yaitu proporsi prediksi positif yang benar-benar positif:
+
+$$
+\text{Precision} = \frac{TP}{TP + FP}
+$$
+
+### 3. Recall (Sensitivitas)  
+Recall mengukur kemampuan model dalam menemukan semua kasus positif yang sebenarnya:
+
+$$
+\text{Recall} = \frac{TP}{TP + FN}
+$$
+
+### 4. Specificity  
+Specificity mengukur kemampuan model dalam mengidentifikasi kasus negatif yang benar:
+
+$$
+\text{Specificity} = \frac{TN}{TN + FP}
+$$
+
+### 5. F1-Score  
+F1-Score adalah rata-rata harmonis antara Precision dan Recall yang memberikan ukuran keseimbangan keduanya:
+
+$$
+F1 = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}
+$$
 
 ### Hasil Perbandingan Model
 
@@ -188,8 +235,41 @@ Rumus lengkap tersedia di notebook.
 
 ### Visualisasi  
 
-- Confusion matrix menunjukkan distribusi prediksi benar dan salah.  
-- Kurva loss dan akurasi model Deep Learning menggambarkan performa training dan validasi.
+Confusion matrix adalah matriks yang menunjukkan performa model klasifikasi dengan cara memvisualisasikan jumlah prediksi yang benar dan salah dalam beberapa kategori:
+
+|                  | Prediksi Positif | Prediksi Negatif |
+|------------------|------------------|------------------|
+| **Data Positif**  | True Positive (TP) | False Negative (FN) |
+| **Data Negatif**  | False Positive (FP) | True Negative (TN) |
+
+- **True Positive (TP):** Prediksi model benar bahwa sampel termasuk kelas positif.  
+- **False Positive (FP):** Prediksi model salah bahwa sampel positif padahal negatif (kesalahan tipe I).  
+- **False Negative (FN):** Prediksi model salah bahwa sampel negatif padahal positif (kesalahan tipe II).  
+- **True Negative (TN):** Prediksi model benar bahwa sampel termasuk kelas negatif.
+
+Confusion matrix membantu memahami jenis kesalahan model yang terjadi dan memberikan gambaran yang lebih rinci dibanding metrik akurasi tunggal.
+
+Learning curve adalah grafik yang menggambarkan performa model selama proses pelatihan terhadap jumlah epoch (iterasi) tertentu, biasanya dalam bentuk:
+
+- **Loss:** Menunjukkan seberapa besar kesalahan model. Loss yang menurun menunjukkan model belajar memperbaiki prediksi.  
+- **Accuracy:** Menunjukkan persentase prediksi yang benar dari total data, biasanya meningkat seiring pelatihan.
+
+Learning curve sering dipakai untuk:
+
+- Mendeteksi **overfitting**, yaitu ketika performa model pada data training sangat baik tetapi buruk pada data validasi. Ditandai dengan loss training rendah namun loss validasi mulai naik.  
+- Mendeteksi **underfitting**, ketika model tidak belajar dengan baik dan performa tetap rendah di training maupun validasi.
+
+---
+
+- Confusion matrixdari hasil train model dan validasi:
+
+  ![Confusion Matrix Random Forest](images/Confusion-Matrix-RF.png)
+
+  ![Confusion Matrix Deep Learning](images/Confusion-Matrix-DL.png)
+  
+- Learning curve atau kurva loss dan akurasi model Deep Learning menggambarkan performa training dan validasi.
+
+  ![Loss dan Accuracy Deep Learning](images/Loss-Accuracy-DL.png)
 
 ---
 
@@ -209,5 +289,9 @@ Setelah pelatihan dan evaluasi, model diuji pada data baru untuk mengukur kemamp
 |----------------|----------|-----------|---------|----------|
 | Random Forest  | 0.9604   | 0.9487    | 0.9755  | 0.9619   |
 | Deep Learning  | 0.9237   | 0.8993    | 0.9586  | 0.9280   |
+
+![Inference Random Forest](images/Inference-RF.png)
+
+![Inference Deep Learning](images/Inference-DL.png)
 
 Model Random Forest unggul dalam prediksi pada data baru, sedangkan Deep Learning juga memberikan performa memadai.
